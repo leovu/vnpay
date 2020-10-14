@@ -22,6 +22,9 @@ How to use :
                 tmn_code: "DMSPRO01",
               );
 
+Result: 
+"AppBackAction", "backapp" : back from button (cancel)
+"WebBackAction" , "CallMobileBankingApp" : back from after transaction 
 
 Using dev mode: 
  
