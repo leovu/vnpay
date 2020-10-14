@@ -6,6 +6,23 @@ A new flutter plugin project.
 
 Plugin has 2 branch: release and developer for Android.
 
+How to use :
+
+     >  String result = await VnPay.payment(
+                isSandbox: "true",
+                scheme: "sampleapp",
+                appBackAlert: "Bạn có chắc chắn trở lại ko?",
+                url:
+                    "http",
+                title: "Thanh toán",
+                backIcon: "ion_back",
+                beginColor: "F06744",
+                endColor: "E26F2C",
+                titleColor: "FFFFFF",
+                tmn_code: "DMSPRO01",
+              );
+
+
 Using dev mode: 
  
      >  vnpay:
