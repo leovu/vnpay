@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/vnpay.iml" filepath="$PROJECT_DIR$/vnpay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/vnpay_android.iml" filepath="$PROJECT_DIR$/android/vnpay_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/vnpay_example_android.iml" filepath="$PROJECT_DIR$/example/android/vnpay_example_android.iml" />
+    </modules>
+  </component>
+</project>

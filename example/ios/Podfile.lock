@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - vnpay (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - vnpay (from `.symlinks/plugins/vnpay/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  vnpay:
+    :path: ".symlinks/plugins/vnpay/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  vnpay: 9c4d08cec347f7d1be58ceaed75e9ceb7c0cab08
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.9.3
