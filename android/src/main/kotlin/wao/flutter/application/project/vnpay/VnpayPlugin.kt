@@ -49,13 +49,17 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?): Boolean {
-    if (requestCode == 102) {
-      if (resultCode == Activity.RESULT_CANCELED) { //press back
-        pendinResult.success("AppBackAction")
-      } else if (resultCode == 99) { // handle event backapp from url
-        //todo something
-        pendinResult.success("WebBackAction")
+    try {
+      if (requestCode == 102) {
+        if (resultCode == Activity.RESULT_CANCELED) { //press back
+          pendinResult.success("AppBackAction")
+        } else if (resultCode == 99) { // handle event backapp from url
+          //todo something
+          pendinResult.success("WebBackAction")
+        }
       }
+    } catch (e: Exception){
+      print(e)
     }
     return true
   }
