@@ -69,11 +69,11 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   override fun onDetachedFromActivity() {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
 
   override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
@@ -82,6 +82,6 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   override fun onDetachedFromActivityForConfigChanges() {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
 }
