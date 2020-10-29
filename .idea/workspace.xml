@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/drawable/bg_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/drawable/icon_circle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/res/layout/resultactivity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/res/layout/resultactivity.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-    </list>
+    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
