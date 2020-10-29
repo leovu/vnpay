@@ -3,6 +3,7 @@ package wao.flutter.application.project.vnpay
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Handler
 import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
@@ -20,7 +21,7 @@ import io.flutter.plugin.common.PluginRegistry
 /** VnpayPlugin */
 class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegistry.ActivityResultListener {
   private lateinit var channel : MethodChannel
-  private lateinit var context: Context
+  private var context: Context? = null
   private lateinit var activity: Activity
   private lateinit var pendinResult: MethodChannel.Result
 
@@ -40,26 +41,36 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   private fun openVnPay(dict: Map<String,String>) {
-    val intent = Intent(context,
-            VNP_AuthenticationActivity::class.java)
-    intent.putExtra("url", dict["url"])
-    intent.putExtra("scheme", dict["scheme"])
-    intent.putExtra("tmn_code", dict["tmn_code"])
-    activity.startActivityForResult(intent,102)
+    if(context == null && pendinResult == null) {
+      Handler().postDelayed({
+        openVnPay(dict)
+      }, 1500)
+    }
+    else {
+      val intent = Intent(context,
+              VNP_AuthenticationActivity::class.java)
+      intent.putExtra("url", dict["url"])
+      intent.putExtra("scheme", dict["scheme"])
+      intent.putExtra("tmn_code", dict["tmn_code"])
+      activity.startActivityForResult(intent,102)
+    }
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?): Boolean {
-    try {
+    if (pendinResult != null) {
       if (requestCode == 102) {
+        Toast.makeText(context,"Callback VNPay",Toast.LENGTH_LONG).show()
         if (resultCode == Activity.RESULT_CANCELED) { //press back
           pendinResult.success("AppBackAction")
         } else if (resultCode == 99) { // handle event backapp from url
           //todo something
           pendinResult.success("WebBackAction")
+        } else {
+          pendinResult.success("WebBackAction")
         }
+      } else {
+        pendinResult.success("WebBackAction")
       }
-    } catch (e: Exception){
-      print(e)
     }
     return true
   }
