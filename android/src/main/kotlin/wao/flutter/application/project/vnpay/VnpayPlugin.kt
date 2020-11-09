@@ -48,11 +48,11 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
     }
     else {
       val intent = Intent(context,
-              VNP_AuthenticationActivity::class.java)
+              StartActivity::class.java)
       intent.putExtra("url", dict["url"])
       intent.putExtra("scheme", dict["scheme"])
       intent.putExtra("tmn_code", dict["tmn_code"])
-      activity.startActivityForResult(intent,102)
+      activity.startActivityForResult(intent,101)
     }
   }
 
