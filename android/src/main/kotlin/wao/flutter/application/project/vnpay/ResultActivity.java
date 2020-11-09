@@ -20,7 +20,6 @@ public class ResultActivity extends Activity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                setResult(0);
                 navigateUp();
             }
         }, 500);
