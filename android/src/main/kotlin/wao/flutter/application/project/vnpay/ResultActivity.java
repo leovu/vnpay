@@ -1,10 +1,15 @@
 package wao.flutter.application.project.vnpay;
 
 import android.app.Activity;
+import android.app.TaskStackBuilder;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NavUtils;
+
+import io.flutter.Log;
 
 public class ResultActivity extends Activity {
 
@@ -15,9 +20,19 @@ public class ResultActivity extends Activity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                finish();
+                setResult(0);
+                navigateUp();
             }
-        }, 2000);
+        }, 500);
+    }
+
+    public void navigateUp() {
+        final Intent upIntent = NavUtils.getParentActivityIntent(this);
+        if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+        } else {
+            NavUtils.navigateUpTo(this, upIntent);
+        }
     }
 
 }
