@@ -43,14 +43,23 @@ Using product mode:
 
 ** In Android ** :
  
-     > <activity
-            android:name="wao.flutter.application.project.vnpay.ResultActivity" android:screenOrientation="portrait">
+     >  <activity android:name="wao.flutter.application.project.vnpay.ResultActivity"
+            android:parentActivityName="wao.flutter.application.project.vnpay.StartActivity"
+            android:theme="@style/Theme.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:scheme="sampleapp"/>
-            </intent-filter> </activity>
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="wao.flutter.application.project.vnpay.StartActivity"/>
+        </activity>
+        <activity
+            android:name="wao.flutter.application.project.vnpay.StartActivity"
+            android:theme="@style/Theme.Transparent">
+        </activity>
     
  Add these line to Manifest. 
  
