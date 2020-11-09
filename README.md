@@ -45,12 +45,12 @@ Using product mode:
  
      >  <activity android:name="wao.flutter.application.project.vnpay.ResultActivity"
             android:parentActivityName="wao.flutter.application.project.vnpay.StartActivity"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/noAnimTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="sampleapp"/>
+                <data android:scheme="retailpro"/>
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -58,11 +58,16 @@ Using product mode:
         </activity>
         <activity
             android:name="wao.flutter.application.project.vnpay.StartActivity"
-            android:theme="@style/Theme.Transparent">
+            android:theme="@style/noAnimTheme">
         </activity>
     
  Add these line to Manifest. 
  
+ And in the res/style : 
+         
+     >  <style name="noAnimTheme" parent="android:Theme">
+        <item name="android:windowAnimationStyle">@null</item>
+        </style>
  
  
  ** In iOS** :
