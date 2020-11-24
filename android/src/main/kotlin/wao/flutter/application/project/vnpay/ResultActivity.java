@@ -26,16 +26,14 @@ public class ResultActivity extends Activity {
     }
 
     public void navigateUp() {
-        public void navigateUp() {
-            final Intent upIntent = NavUtils.getParentActivityIntent(this);
-            if(upIntent != null) {
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)
-                        || getIntent().getAction() != null) {
-                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
-                            .startActivities();
-                } else {
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
+        final Intent upIntent = NavUtils.getParentActivityIntent(this);
+        if(upIntent != null) {
+            if (NavUtils.shouldUpRecreateTask(this, upIntent)
+                    || getIntent().getAction() != null) {
+                TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
+                        .startActivities();
+            } else {
+                NavUtils.navigateUpTo(this, upIntent);
             }
         }
     }
