@@ -53,6 +53,7 @@
         </activity>
         <activity
             android:name="wao.flutter.application.project.vnpay.StartActivity"
+            android:launchMode="singleTask"
             android:theme="@style/noAnimTheme">
         </activity>
         <meta-data
