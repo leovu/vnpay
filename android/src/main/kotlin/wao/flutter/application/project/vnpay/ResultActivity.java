@@ -22,16 +22,21 @@ public class ResultActivity extends Activity {
             public void run() {
                 navigateUp();
             }
-        }, 500);
+        }, 2000);
     }
 
     public void navigateUp() {
-        Intent upIntent = NavUtils.getParentActivityIntent(this);
-        if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
-            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
-                    .startActivities();
-        } else {
-            finish();
+        public void navigateUp() {
+            final Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if(upIntent != null) {
+                if (NavUtils.shouldUpRecreateTask(this, upIntent)
+                        || getIntent().getAction() != null) {
+                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
+                            .startActivities();
+                } else {
+                    NavUtils.navigateUpTo(this, upIntent);
+                }
+            }
         }
     }
 
