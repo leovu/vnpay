@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
                   isSandbox: "true",
                   scheme: "retailpro",
                   appBackAlert: "Bạn có chắc chắn trở lại ko?",
-                  url:"http://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Version=2.0.0&vnp_TmnCode=DMSPRO01&vnp_Amount=4000000&vnp_Command=pay&vnp_CreateDate=20201109145950&vnp_CurrCode=VND&vnp_IpAddr=104.215.155.1&vnp_Locale=vn&vnp_OrderInfo=Thanh+to%C3%A1n+%C4%91%C6%A1n+h%C3%A0ng+C000000008.201109.23&vnp_OrderType=100000&vnp_ReturnUrl=https%3A%2F%2Fapidev2.retailpro.io%2Fretbranddev%2Fb6e9d857-ee21-4bf2-b4e3-e76d41a2500b%2Fpayment%2Freturn&vnp_TxnRef=166&vnp_SecureHashType=SHA256&vnp_SecureHash=cf40e69f4d2cb922a8fbcfb8dd35e7321d63cc74bd2437e7debe779623a57938",
+                  url:"http:\/\/sandbox.vnpayment.vn\/paymentv2\/vpcpay.html?vnp_Version=2.0.0&vnp_TmnCode=DMSPRO01&vnp_Amount=11000000&vnp_Command=pay&vnp_CreateDate=20201124124945&vnp_CurrCode=VND&vnp_IpAddr=52.187.53.238&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+don+hang+C000081.201124.16&vnp_OrderType=100000&vnp_ReturnUrl=https%3A%2F%2Frtqc-api-mgt.azure-api.net%2Fbrandapi%2Fa3be4081-dae7-4420-8ca5-bdad99e2b91f%2Fpayment%2Freturn&vnp_TxnRef=169&vnp_SecureHashType=SHA256&vnp_SecureHash=2642181bf5ef5632316d78390b24f3381f182ef14296c317435b3baa46047f2a",
                   title: "Thanh toán",
                   backIcon: "ion_back",
                   beginColor: "F06744",
