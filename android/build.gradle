@@ -42,8 +42,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.7.0'
-    implementation files("libs/Sdk-release1.16_test.aar")
-//    implementation files("libs/Sdk-release1.16_live.aar")
+//    implementation files("libs/Sdk-release1.16_test.aar")
+    implementation files("libs/Sdk-release1.16_live.aar")
 }
 
 rootProject.allprojects {
