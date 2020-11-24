@@ -17,12 +17,12 @@ public class ResultActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultactivity);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                navigateUp();
-            }
-        }, 2000);
+//        Handler handler = new Handler();
+//        handler.postDelayed(new Runnable() {
+//            public void run() {
+//                navigateUp();
+//            }
+//        }, 2000);
     }
 
     public void navigateUp() {
