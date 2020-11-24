@@ -28,20 +28,16 @@ public class ResultActivity extends Activity {
     public void navigateUp() {
         final Intent upIntent = NavUtils.getParentActivityIntent(this);
         if(upIntent != null) {
-            runOnUiThread(new Runnable(){
-                public void run() {
-                    try {
-                        if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
-                            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
-                        } else {
-                            NavUtils.navigateUpTo(this, upIntent);
-                        }
-                    }
-                    catch(Exception e) {
-                        Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_LONG).show();
-                    }
+            try {
+                if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+                } else {
+                    NavUtils.navigateUpTo(this, upIntent);
                 }
-            });
+            }
+            catch(Exception e) {
+                Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_LONG).show();
+            }
         }
     }
 
