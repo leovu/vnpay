@@ -26,11 +26,12 @@ public class ResultActivity extends Activity {
     }
 
     public void navigateUp() {
-        final Intent upIntent = NavUtils.getParentActivityIntent(this);
+        Intent upIntent = NavUtils.getParentActivityIntent(this);
         if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
-            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
+                    .startActivities();
         } else {
-            NavUtils.navigateUpTo(this, upIntent);
+            finish();
         }
     }
 
