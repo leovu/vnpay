@@ -17,21 +17,24 @@ public class ResultActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultactivity);
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            public void run() {
-//                navigateUp();
-//            }
-//        }, 2000);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                navigateUp();
+            }
+        }, 100);
     }
 
     public void navigateUp() {
         final Intent upIntent = NavUtils.getParentActivityIntent(this);
         if(upIntent != null) {
             try {
+                Toast.makeText(this, "Vao try r ne", Toast.LENGTH_LONG).show();
                 if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+                    Toast.makeText(this, "Vao if r ne", Toast.LENGTH_LONG).show();
                     TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
                 } else {
+                    Toast.makeText(this, "Vao else r ne", Toast.LENGTH_LONG).show();
                     NavUtils.navigateUpTo(this, upIntent);
                 }
             }
