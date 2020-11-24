@@ -8,8 +8,8 @@ import android.os.Handler;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NavUtils;
+import android.widget.Toast;
 
-import io.flutter.Log;
 
 public class ResultActivity extends Activity {
 
@@ -28,13 +28,20 @@ public class ResultActivity extends Activity {
     public void navigateUp() {
         final Intent upIntent = NavUtils.getParentActivityIntent(this);
         if(upIntent != null) {
-            if (NavUtils.shouldUpRecreateTask(this, upIntent)
-                    || getIntent().getAction() != null) {
-                TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent)
-                        .startActivities();
-            } else {
-                NavUtils.navigateUpTo(this, upIntent);
-            }
+            runOnUiThread(new Runnable(){
+                public void run() {
+                    try {
+                        if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+                            TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+                        } else {
+                            NavUtils.navigateUpTo(this, upIntent);
+                        }
+                    }
+                    catch(Exception e) {
+                        Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
     }
 
