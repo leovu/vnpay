@@ -32,6 +32,26 @@ public class StartActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         setResult(requestCode,data);
-        finish();
+        navigateUp();
+    }
+
+    public void navigateUp() {
+        try {
+            final Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if(upIntent != null) {
+                if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+                } else {
+                    NavUtils.navigateUpTo(this, upIntent);
+                }
+            }
+            else {
+                finish();
+            }
+        }
+        catch(Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            finish();
+        }
     }
 }
