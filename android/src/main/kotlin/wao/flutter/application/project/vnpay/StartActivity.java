@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.NavUtils;
 
 import com.vnpay.authentication.VNP_AuthenticationActivity;
 
 public class StartActivity extends Activity {
-    View iconSuccess;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
