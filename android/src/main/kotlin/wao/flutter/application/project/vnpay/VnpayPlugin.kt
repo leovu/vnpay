@@ -16,6 +16,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
+import java.lang.Exception
 
 
 /** VnpayPlugin */
@@ -77,9 +78,6 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
           }
         }
       }
-    }
-    catch (e: SomeException) {
-      // handler
     }
     return true
   }
