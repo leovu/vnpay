@@ -1,11 +1,10 @@
 package wao.flutter.application.project.vnpay;
 
 import android.app.Activity;
+import android.app.TaskStackBuilder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NavUtils;
@@ -13,7 +12,6 @@ import androidx.core.app.NavUtils;
 import com.vnpay.authentication.VNP_AuthenticationActivity;
 
 public class StartActivity extends Activity {
-    View iconSuccess;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +33,25 @@ public class StartActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         setResult(requestCode,data);
-        finish();
+        navigateUp();
+    }
+
+    public void navigateUp() {
+        try {
+            final Intent upIntent = NavUtils.getParentActivityIntent(this);
+            if(upIntent != null) {
+                if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
+                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
+                } else {
+                    NavUtils.navigateUpTo(this, upIntent);
+                }
+            }
+            else {
+                finish();
+            }
+        }
+        catch(Exception e) {
+            finish();
+        }
     }
 }
