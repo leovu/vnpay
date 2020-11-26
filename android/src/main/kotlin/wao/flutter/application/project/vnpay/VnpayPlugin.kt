@@ -32,11 +32,9 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    pendinResult = result
     if (call.method == "vnpay") {
+      pendinResult = result
       openVnPay(call.arguments() as Map<String,String>)
-    } else {
-      result.notImplemented()
     }
   }
 
@@ -47,30 +45,41 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
       }, 1500)
     }
     else {
-      val intent = Intent(context,
-              StartActivity::class.java)
-      intent.putExtra("url", dict["url"])
-      intent.putExtra("scheme", dict["scheme"])
-      intent.putExtra("tmn_code", dict["tmn_code"])
-      activity.startActivityForResult(intent,101)
+      if (this::pendinResult.isInitialized) {
+        if (pendinResult != null) {
+          val intent = Intent(context,
+                  StartActivity::class.java)
+          intent.putExtra("url", dict["url"])
+          intent.putExtra("scheme", dict["scheme"])
+          intent.putExtra("tmn_code", dict["tmn_code"])
+          activity.startActivityForResult(intent,101)
+        }
+      }
     }
   }
 
   override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?): Boolean {
-    if (pendinResult != null) {
-      if (requestCode == 102) {
-        Toast.makeText(context,"Callback VNPay",Toast.LENGTH_LONG).show()
-        if (resultCode == Activity.RESULT_CANCELED) { //press back
-          pendinResult.success("AppBackAction")
-        } else if (resultCode == 99) { // handle event backapp from url
-          //todo something
-          pendinResult.success("WebBackAction")
-        } else {
-          pendinResult.success("WebBackAction")
+    try {
+      if (this::pendinResult.isInitialized) {
+        if (pendinResult != null) {
+          if (requestCode == 102) {
+            Toast.makeText(context,"Callback VNPay",Toast.LENGTH_LONG).show()
+            if (resultCode == Activity.RESULT_CANCELED) { //press back
+              pendinResult.success("AppBackAction")
+            } else if (resultCode == 99) { // handle event backapp from url
+              //todo something
+              pendinResult.success("WebBackAction")
+            } else {
+              pendinResult.success("WebBackAction")
+            }
+          } else {
+            pendinResult.success("WebBackAction")
+          }
         }
-      } else {
-        pendinResult.success("WebBackAction")
       }
+    }
+    catch (e: SomeException) {
+      // handler
     }
     return true
   }
