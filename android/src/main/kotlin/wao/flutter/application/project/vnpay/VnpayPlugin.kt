@@ -78,6 +78,8 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
           }
         }
       }
+    }catch (e:Exception){
+      
     }
     return true
   }
