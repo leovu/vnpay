@@ -58,8 +58,55 @@ Using product mode:
         </activity>
         <activity
             android:name="wao.flutter.application.project.vnpay.StartActivity"
+            android:parentActivityName=".SplashActivity"
             android:theme="@style/noAnimTheme">
         </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/noAnimTheme">
+        </activity>
+ 
+ Create SplashAcitivty in app project 
+ 
+     import android.app.Activity;
+     import android.os.Bundle;
+     import android.os.Handler;
+
+     import androidx.annotation.Nullable;
+
+      public class SplashActivity extends Activity {
+         @Override
+         protected void onCreate(@Nullable Bundle savedInstanceState) {
+             super.onCreate(savedInstanceState);
+             setContentView(R.layout.splash_activity);
+             Handler handler = new Handler();
+             handler.postDelayed(new Runnable() {
+                 public void run() {
+                     UtilProject.INSTANCE.setVnpayOpen(true);
+                     finish();
+                 }
+             }, 500);
+         }
+
+       }
+
+ Add the UtilProject and add MainActivity 
+ 
+           override fun onCreate(savedInstanceState: Bundle?) {
+                  super.onCreate(savedInstanceState)
+                  if (UtilProject.vnpayOpen) {
+                      finish()
+                      UtilProject.vnpayOpen = false
+                  }
+              }
+          object UtilProject {
+            var vnpayOpen:Boolean = false
+            var webViewUrl: String = ""
+            var pendingResult: MethodChannel.Result? = null
+          }
+          
+
     
  Add these line to Manifest. 
  
