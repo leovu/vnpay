@@ -76,6 +76,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
           } else {
             pendinResult.success("WebBackAction")
           }
+          pendinResult = null
         }
       }
     }catch (e:Exception){
