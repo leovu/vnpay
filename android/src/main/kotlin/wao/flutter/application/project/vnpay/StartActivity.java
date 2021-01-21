@@ -25,33 +25,8 @@ public class StartActivity extends Activity {
                 intent.putExtra("scheme", getIntent().getStringExtra("scheme"));
                 intent.putExtra("tmn_code", getIntent().getStringExtra("tmn_code"));
                 startActivityForResult(intent,102);
-            }
-        }, 500);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        setResult(requestCode,data);
-        navigateUp();
-    }
-
-    public void navigateUp() {
-        try {
-            final Intent upIntent = NavUtils.getParentActivityIntent(this);
-            if(upIntent != null) {
-                if (NavUtils.shouldUpRecreateTask(this, upIntent) || isTaskRoot()) {
-                    TaskStackBuilder.create(this).addNextIntentWithParentStack(upIntent).startActivities();
-                } else {
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
-            }
-            else {
                 finish();
             }
-        }
-        catch(Exception e) {
-            finish();
-        }
+        }, 500);
     }
 }
