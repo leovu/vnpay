@@ -11,6 +11,7 @@ import com.vnpay.authentication.VNP_AuthenticationActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -30,6 +31,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
     context = flutterPluginBinding.applicationContext
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter.io/vnpay")
     channel.setMethodCallHandler(this)
+    UtilProjectVnpayPlugin.binaryMessenger = flutterPluginBinding.binaryMessenger
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -69,12 +71,12 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
               pendinResult.success("AppBackAction")
             } else if (resultCode == 99) { // handle event backapp from url
               //todo something
-              pendinResult.success("WebBackAction")
+              pendinResult.success("BackAction")
             } else {
-              pendinResult.success("WebBackAction")
+              pendinResult.success("BackAction")
             }
           } else {
-            pendinResult.success("WebBackAction")
+            pendinResult.success("BackAction")
           }
         }
       }
@@ -104,4 +106,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   override fun onDetachedFromActivityForConfigChanges() {
 //    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
+}
+object UtilProjectVnpayPlugin {
+  var binaryMessenger: BinaryMessenger? = null
 }
