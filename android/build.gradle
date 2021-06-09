@@ -11,8 +11,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // compileOnly files('libs/Sdk-release1.16_test.aar') 
-        compileOnly files('libs/Sdk-release1.16_live.aar')
     }
 }
 
