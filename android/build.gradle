@@ -43,8 +43,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:okhttp:3.7.0'
 //    implementation files("libs/Sdk-release1.16_test.aar")
-    // implementation files("libs/Sdk-release1.16_live.aar")
-    implementation fileTree(include: '*.aar', dir: 'libs/')
+    implementation files("libs/Sdk-release1.16_live.aar")
 }
 
 rootProject.allprojects {
