@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.7.0'
 //    implementation files("libs/Sdk-release1.16_test.aar")
 //    implementation files("libs/Sdk-release1.16_live.aar")
-    compileOny files('libs/Sdk-release1.16_live.aar')
+    compileOnly files('libs/Sdk-release1.16_live.aar')
 }
 
 rootProject.allprojects {
