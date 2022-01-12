@@ -23,22 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/libs/merchant-1.0.24.aar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/libs/merchant-1.0.25.aar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/ResultActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/libs/Sdk-release1.16_live.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/libs/Sdk-release1.16_test.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/ResultActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/StartActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/ResultActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/ResultActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/VnpayPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/VnpayPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/vnpay.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/vnpay.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

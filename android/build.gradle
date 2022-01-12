@@ -44,15 +44,14 @@ dependencies {
     // VNPay
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.1'
-    compile(name: 'merchant-1.0.25', ext: 'aar')
+//    compile(name: 'merchant-1.0.25', ext: 'aar')
+
+    compileOnly files('libs/merchant-1.0.25.aar')
 }
 
 rootProject.allprojects {
     repositories {
         google()
         jcenter()
-        flatDir {
-            dirs 'libs'
-        }
     }
 }

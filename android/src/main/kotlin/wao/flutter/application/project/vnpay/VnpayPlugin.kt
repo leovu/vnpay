@@ -25,30 +25,28 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
   private lateinit var channel : MethodChannel
   private var context: Context? = null
   private lateinit var activity: Activity
-  private lateinit var pendinResult: MethodChannel.Result
+  private lateinit var pendingResult: MethodChannel.Result
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     context = flutterPluginBinding.applicationContext
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter.io/vnpay")
     channel.setMethodCallHandler(this)
-    UtilProjectVnpayPlugin.binaryMessenger = flutterPluginBinding.binaryMessenger
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "vnpay") {
-      pendinResult = result
+      pendingResult = result
       openVnPay(call.arguments() as Map<String,String>)
     }
   }
 
   private fun openVnPay(dict: Map<String,String>) {
-    val intent = Intent(this, VNP_AuthenticationActivity::class.java)
+    val intent = Intent(context, VNP_AuthenticationActivity::class.java)
     intent.putExtra("url", dict["url"])
     intent.putExtra("tmn_code", dict["tmnCode"])
     intent.putExtra("scheme", dict["scheme"])
     intent.putExtra("is_sandbox", dict["isSandbox"] == "true")
     VNP_AuthenticationActivity.setSdkCompletedCallback { action ->
-      Log.wtf("SplashActivity", "action: $action")
       //Người dùng nhấn back từ sdk để quay lại
       if(action == "AppBackAction"){
         pendingResult.success(-1)
@@ -70,7 +68,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
         pendingResult.success(0)
       }
     }
-    startActivity(intent)
+    context?.startActivity(intent)
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
@@ -87,7 +85,6 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
 
   override fun onAttachedToActivity(binding: ActivityPluginBinding) {
     activity = binding.activity
-    binding.addActivityResultListener(this)
   }
 
   override fun onDetachedFromActivityForConfigChanges() {

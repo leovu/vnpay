@@ -9,7 +9,6 @@ import android.util.Log
 class ResultActivity: Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.result_activity);
 
         val pm: PackageManager = applicationContext.packageManager
         val intent: Intent? = pm.getLaunchIntentForPackage(applicationContext.packageName)
