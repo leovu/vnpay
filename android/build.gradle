@@ -40,16 +40,19 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // VNPay
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.okhttp3:okhttp:3.7.0'
-//    implementation files("libs/Sdk-release1.16_test.aar")
-//    implementation files("libs/Sdk-release1.16_live.aar")
-    compileOnly files('libs/Sdk-release1.16_test.aar')
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.1'
+    compile(name: 'merchant-1.0.25', ext: 'aar')
 }
 
 rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dirs 'libs'
+        }
     }
 }

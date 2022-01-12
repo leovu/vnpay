@@ -21,7 +21,7 @@ import java.lang.Exception
 
 
 /** VnpayPlugin */
-class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegistry.ActivityResultListener {
+class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
   private lateinit var channel : MethodChannel
   private var context: Context? = null
   private lateinit var activity: Activity
@@ -42,48 +42,35 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   }
 
   private fun openVnPay(dict: Map<String,String>) {
-    if(context == null && pendinResult == null) {
-      Handler().postDelayed({
-        openVnPay(dict)
-      }, 1500)
-    }
-    else {
-      if (this::pendinResult.isInitialized) {
-        if (pendinResult != null) {
-          val intent = Intent(context,
-                  StartActivity::class.java)
-          intent.putExtra("url", dict["url"])
-          intent.putExtra("scheme", dict["scheme"])
-          intent.putExtra("tmn_code", dict["tmn_code"])
-          activity.startActivityForResult(intent,101)
-        }
+    val intent = Intent(this, VNP_AuthenticationActivity::class.java)
+    intent.putExtra("url", dict["url"])
+    intent.putExtra("tmn_code", dict["tmnCode"])
+    intent.putExtra("scheme", dict["scheme"])
+    intent.putExtra("is_sandbox", dict["isSandbox"] == "true")
+    VNP_AuthenticationActivity.setSdkCompletedCallback { action ->
+      Log.wtf("SplashActivity", "action: $action")
+      //Người dùng nhấn back từ sdk để quay lại
+      if(action == "AppBackAction"){
+        pendingResult.success(-1)
+      }
+      //giao dịch thanh toán bị failed
+      else if (action == "FaildBackAction"){
+        pendingResult.success(1)
+      }
+      //thanh toán thành công trên webview
+      else if (action == "SuccessBackAction"){
+        pendingResult.success(1)
+      }
+      //Người dùng nhấn back từ trang thanh toán thành công khi thanh toán qua thẻ khi url có chứa: cancel.sdk.merchantbackapp
+      else if (action == "WebBackAction"){
+        pendingResult.success(1)
+      }
+      //Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
+      else if (action == "CallMobileBankingApp"){
+        pendingResult.success(0)
       }
     }
-  }
-
-  override fun onActivityResult(requestCode: Int, resultCode: Int, @Nullable data: Intent?): Boolean {
-    try {
-      if (this::pendinResult.isInitialized) {
-        if (pendinResult != null) {
-          if (requestCode == 102) {
-            Toast.makeText(context,"Callback VNPay",Toast.LENGTH_LONG).show()
-            if (resultCode == Activity.RESULT_CANCELED) { //press back
-              pendinResult.success("AppBackAction")
-            } else if (resultCode == 99) { // handle event backapp from url
-              //todo something
-              pendinResult.success("BackAction")
-            } else {
-              pendinResult.success("BackAction")
-            }
-          } else {
-            pendinResult.success("BackAction")
-          }
-        }
-      }
-    }catch (e:Exception){
-      
-    }
-    return true
+    startActivity(intent)
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
@@ -106,7 +93,4 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware , PluginRegis
   override fun onDetachedFromActivityForConfigChanges() {
 //    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
-}
-object UtilProjectVnpayPlugin {
-  var binaryMessenger: BinaryMessenger? = null
 }

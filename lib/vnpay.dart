@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 
 class VnPay {
   static const MethodChannel _channel = const MethodChannel('flutter.io/vnpay');
-  static Future<String> payment({
-    String isSandbox,
+  static Future<VnPayResult> payment({
+    bool isSandbox,
     String scheme,
     String appBackAlert,
     String url,
@@ -14,10 +14,10 @@ class VnPay {
     String beginColor,
     String endColor,
     String titleColor,
-    String tmn_code,
+    String tmnCode,
   }) async {
     Map<String, String> dict = {
-      "isSandbox": isSandbox ?? "false",
+      "isSandbox": (isSandbox ?? false).toString(),
       "scheme": scheme ?? "",
       "appBackAlert": appBackAlert ?? "",
       "url": url ?? "",
@@ -26,9 +26,18 @@ class VnPay {
       "beginColor": beginColor ?? "",
       "endColor": endColor ?? "",
       "titleColor": titleColor ?? "",
-      "tmn_code": tmn_code ?? "",
+      "tmnCode": tmnCode ?? "",
     };
-    final String result = await _channel.invokeMethod('vnpay', dict);
-    return result;
+    final int result = await _channel.invokeMethod('vnpay', dict);
+    if(result == 1){
+      return VnPayResult.SUCCESS;
+    }
+    else if(result == 0){
+      return VnPayResult.PROCESSING;
+    }
+
+    return VnPayResult.CANCEL;
   }
 }
+
+enum VnPayResult{SUCCESS, PROCESSING, CANCEL}

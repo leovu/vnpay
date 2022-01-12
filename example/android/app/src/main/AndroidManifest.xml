@@ -38,23 +38,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="wao.flutter.application.project.vnpay.ResultActivity"
-            android:parentActivityName="wao.flutter.application.project.vnpay.StartActivity"
-            android:theme="@style/noAnimTheme">
+
+        <!-- VNPay -->
+        <!--Acvitiy để trigger kết quả thanh toán từ app mobile banking
+          khi mở lại activity này thì bạn cần kiểm tra trạng thái thanh toán của đơn hàng -->
+        <activity android:name="wao.flutter.application.project.vnpay.ResultActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="retailpro"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="retailpro" />
             </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="wao.flutter.application.project.vnpay.StartActivity"/>
-        </activity>
-        <activity
-            android:name="wao.flutter.application.project.vnpay.StartActivity"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/noAnimTheme">
         </activity>
         <meta-data
             android:name="flutterEmbedding"
