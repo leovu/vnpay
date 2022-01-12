@@ -3,22 +3,15 @@ package wao.flutter.application.project.vnpay
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.widget.Toast
 import androidx.annotation.NonNull
-import androidx.annotation.Nullable
 import com.vnpay.authentication.VNP_AuthenticationActivity
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
-import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry
-import java.lang.Exception
-
 
 /** VnpayPlugin */
 class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
