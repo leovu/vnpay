@@ -34,7 +34,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
   }
 
   private fun openVnPay(dict: Map<String,String>) {
-    val intent = Intent(context, VNP_AuthenticationActivity::class.java)
+    val intent = Intent(activity, VNP_AuthenticationActivity::class.java)
     intent.putExtra("url", dict["url"])
     intent.putExtra("tmn_code", dict["tmnCode"])
     intent.putExtra("scheme", dict["scheme"])
@@ -61,7 +61,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
         pendingResult.success(0)
       }
     }
-    context?.startActivity(intent)
+    activity.startActivity(intent)
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {

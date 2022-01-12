@@ -18,6 +18,10 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        flatDir {
+            dir 'libs'
+            dirs project(':vnpay').file('libs')
+        }
     }
 }
 
@@ -25,13 +29,13 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -42,11 +46,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // VNPay
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.1'
-//    compile(name: 'merchant-1.0.25', ext: 'aar')
-
-    compileOnly files('libs/merchant-1.0.25.aar')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.7'
+    implementation(name: 'merchant-1.0.25',ext: 'aar')
 }
 
 rootProject.allprojects {
