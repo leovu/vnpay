@@ -21,7 +21,7 @@ FlutterResult vnPayResult;
 }
 
 +(void)paymentCallbackAppDelegate {
-    vnPayResult(@"backapp");
+    vnPayResult(@-1);
 }
 
 -(void)paymentAction:(NSDictionary<NSString *, NSString *>*) dict{
@@ -57,14 +57,20 @@ FlutterResult vnPayResult;
     if ([notification.name isEqualToString:@"SDK_COMPLETED"]) {
         NSLog(@"Notify Value: %@",notification.object);
         NSString *actionValue=[notification.object valueForKey:@"Action"];
-        if ([@"AppBackAction" isEqualToString:actionValue]) {//Người dùng nhấn back từ sdk để quay lại
-            vnPayResult(@"AppBackAction");
+        if ([@"AppBackAction" isEqualToString:actionValue]) {
+            vnPayResult(@-1);
         }
-        if ([@"WebBackAction" isEqualToString:actionValue]) {//Người dùng nhấn back từ trang thanh toán thành công khi thanh toán qua thẻ khi gọi đến http://sdk.merchantbackapp
-            vnPayResult(@"WebBackAction");
+        if ([@"WebBackAction" isEqualToString:actionValue]) {
+            vnPayResult(@1);
         }
-        if ([@"CallMobileBankingApp" isEqualToString:actionValue]) {//Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
-            vnPayResult(@"CallMobileBankingApp");
+        if ([@"FaildBackAction" isEqualToString:actionValue]) {
+            vnPayResult(@1);
+        }
+        if ([@"SuccessBackAction" isEqualToString:actionValue]) {
+            vnPayResult(@1);
+        }
+        if ([@"CallMobileBankingApp" isEqualToString:actionValue]) {
+            vnPayResult(@0);
         }
     }
 }

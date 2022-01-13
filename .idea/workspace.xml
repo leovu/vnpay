@@ -22,7 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="" />
+    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/VnpayPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/VnpayPlugin.m" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
