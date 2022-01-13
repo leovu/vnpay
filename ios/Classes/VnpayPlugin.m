@@ -20,55 +20,88 @@ FlutterResult vnPayResult;
   }
 }
 
-+(void)paymentCallbackAppDelegate {
-    vnPayResult(-1);
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SDK_COMPLETED"
+    object:Nil];
 }
 
 -(void)paymentAction:(NSDictionary<NSString *, NSString *>*) dict{
-    /**
-     - Các tham số:
-     1. URL: lấy từ hệ thống VD: https://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder
-     2. Title của màn hình chọn phương thức thanh toán: VD: "Thanh toán"
-     3. iconBackName của màn hình thanh toán:  VD: ion_back
-     4: beginColor: Màu bắt đầu của header:  VD: F06744
-     5: endColor: Màu kết thúc của header:  VD: E26F2C
-     6. tmnCode: VD: 2QXUI4J4
-     7: titleColor: Màu của header title
-     +(void)setAppBackAlert:(NSString*)alert;//Default: @"Bạn có chắc chắn muốn trở lại không?"
-     +(void)setAppNotAvailableAlert:(NSString*)alert;//Default: @"Thiết bị chưa cài đặt ứng dụng thanh toán này, bạn có muốn cài đặt không?"
-     7. [CallAppInterface setSchemes:@"sampleApp"];  Hàm set schemes của app để ứng dụng MB gọi quay trở lại khi thanh toán xong. Tham số này set trong URL Types của ứng dụng
-    */
+    UIViewController *fromVC = [[UIApplication sharedApplication] delegate].window.rootViewController; //bắt buộc
+    NSString *scheme = dict[@"scheme"]; //bắt buộc, tên scheme merchant tự cài đặt theo app
+    BOOL isSandbox = [dict[@"isSandbox"]  isEqual: @"true"] ? true : false; //bắt buộc, YES <=> môi trường test, NO <=> môi trường live
+    NSString *paymentUrl = dict[@"url"]; //bắt buộc, URL hệ thống Merchant tạo.
+    NSString *tmn_code = dict[@"tmnCode"]; //bắt buộc, VNPAY cung cấp
+    BOOL backAction = YES; //bắt buộc, YES <=> bấm back sẽ thoát SDK, NO <=> bấm back thì trang web sẽ back lại trang trước đó, nên set là YES, nên set là YES, vì trang thanh toán không nên cho người dùng back về trang trước
+    NSString *backAlert = dict[@"appBackAlert"]; //không bắt buộc, thông báo khi người dùng bấm back
+    NSString *title = dict[@"title"]; //bắt buộc, title của trang thanh toán
+    NSString *titleColor = dict[@"titleColor"]; //bắt buộc, màu của title
+    NSString *beginColor = dict[@"beginColor"]; //bắt buộc, màu của background title
+    NSString *endColor = endColor:dict[@"endColor"]; //bắt buộc, màu của background title
+    NSString *iconBackName = dict[@"backIcon"]; //bắt buộc, icon back
+    
+    [self showFromVC:fromVC
+              scheme:scheme
+           isSandbox:isSandbox
+          paymentUrl:paymentUrl
+            tmn_code:tmn_code
+          backAction:backAction
+           backAlert:backAlert
+               title:title
+          titleColor:titleColor
+          beginColor:beginColor
+            endColor:endColor
+        iconBackName:iconBackName];
+}
+
+- (void)showFromVC:(UIViewController*)fromVC
+            scheme:(NSString *)scheme
+         isSandbox:(BOOL )isSandbox
+        paymentUrl:(NSString *)paymentUrl
+          tmn_code:(NSString *)tmn_code
+        backAction:(BOOL)backAction
+         backAlert:(NSString *)backAlert
+             title:(NSString *)title
+        titleColor:(NSString *)titleColor
+        beginColor:(NSString *)beginColor
+          endColor:(NSString *)endColor
+      iconBackName:(NSString *)iconBackName {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SDK_COMPLETED" object:Nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sdkAction:) name:@"SDK_COMPLETED" object:nil];
-    bool isSandbox = [dict[@"isSandbox"]  isEqual: @"true"] ? true : false;
-    [CallAppInterface setSchemes:dict[@"scheme"]];
-
-    [[NSUserDefaults standardUserDefaults] setObject:dict[@"scheme"] forKey:@"vnpay_app_scheme"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
+    [CallAppInterface setHomeViewController:fromVC];
+    [CallAppInterface setSchemes:scheme];
     [CallAppInterface setIsSandbox:isSandbox];
-    [CallAppInterface setAppBackAlert:dict[@"appBackAlert"]];
-    [CallAppInterface setHomeViewController:[[UIApplication sharedApplication] delegate].window.rootViewController];
-    [CallAppInterface showPushPaymentwithPaymentURL:dict[@"url"] withTitle:dict[@"title"] iconBackName:dict[@"backIcon"] beginColor:dict[@"beginColor"] endColor:dict[@"endColor"] titleColor:dict[@"titleColor"] tmn_code:dict[@"tmnCode"]];
+    [CallAppInterface setAppBackAlert:backAlert];
+    [CallAppInterface setEnableBackAction:backAction];
+    [CallAppInterface showPushPaymentwithPaymentURL:paymentUrl
+                                          withTitle:title
+                                       iconBackName:iconBackName
+                                          beginColor:beginColor
+                                           endColor:endColor
+                                          titleColor:titleColor
+                                           tmn_code:tmn_code];
 }
 
 
--(void)sdkAction:(NSNotification *)notification{
-    // Khi SKD xử lý xong, sẽ gọi ở hàm này(Bao gồm, cả người dùng nhấn back, và thanh toán thành công)
-    if ([notification.name isEqualToString:@"SDK_COMPLETED"]) {
-        NSLog(@"Notify Value: %@",notification.object);
+-(void)sdkAction:(NSNotification*)notification {
+    if ([notification.name isEqualToString:@"SDK_COMPLETED"]){
         NSString *actionValue=[notification.object valueForKey:@"Action"];
+        //Người dùng nhấn back từ sdk để quay lại
         if ([@"AppBackAction" isEqualToString:actionValue]) {
             vnPayResult(-1);
         }
+        //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://cancel.sdk.merchantbackapp
         if ([@"WebBackAction" isEqualToString:actionValue]) {
             vnPayResult(1);
         }
+        //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://fail.sdk.merchantbackapp
         if ([@"FaildBackAction" isEqualToString:actionValue]) {
             vnPayResult(1);
         }
+        //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://success.sdk.merchantbackapp
         if ([@"SuccessBackAction" isEqualToString:actionValue]) {
             vnPayResult(1);
         }
+        //Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
         if ([@"CallMobileBankingApp" isEqualToString:actionValue]) {
             vnPayResult(0);
         }
