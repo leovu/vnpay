@@ -36,7 +36,7 @@ FlutterResult vnPayResult;
     NSString *title = dict[@"title"]; //bắt buộc, title của trang thanh toán
     NSString *titleColor = dict[@"titleColor"]; //bắt buộc, màu của title
     NSString *beginColor = dict[@"beginColor"]; //bắt buộc, màu của background title
-    NSString *endColor = endColor:dict[@"endColor"]; //bắt buộc, màu của background title
+    NSString *endColor = dict[@"endColor"]; //bắt buộc, màu của background title
     NSString *iconBackName = dict[@"backIcon"]; //bắt buộc, icon back
     
     [self showFromVC:fromVC
@@ -87,23 +87,23 @@ FlutterResult vnPayResult;
         NSString *actionValue=[notification.object valueForKey:@"Action"];
         //Người dùng nhấn back từ sdk để quay lại
         if ([@"AppBackAction" isEqualToString:actionValue]) {
-            vnPayResult(-1);
+            vnPayResult(@(3));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://cancel.sdk.merchantbackapp
         if ([@"WebBackAction" isEqualToString:actionValue]) {
-            vnPayResult(1);
+            vnPayResult(@(3));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://fail.sdk.merchantbackapp
         if ([@"FaildBackAction" isEqualToString:actionValue]) {
-            vnPayResult(1);
+            vnPayResult(@(3));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://success.sdk.merchantbackapp
         if ([@"SuccessBackAction" isEqualToString:actionValue]) {
-            vnPayResult(1);
+            vnPayResult(@(3));
         }
         //Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
         if ([@"CallMobileBankingApp" isEqualToString:actionValue]) {
-            vnPayResult(0);
+            vnPayResult(@(3));
         }
     }
 }
