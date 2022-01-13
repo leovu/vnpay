@@ -87,23 +87,23 @@ FlutterResult vnPayResult;
         NSString *actionValue=[notification.object valueForKey:@"Action"];
         //Người dùng nhấn back từ sdk để quay lại
         if ([@"AppBackAction" isEqualToString:actionValue]) {
-            vnPayResult(@(3));
+            vnPayResult(@(-1));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://cancel.sdk.merchantbackapp
         if ([@"WebBackAction" isEqualToString:actionValue]) {
-            vnPayResult(@(3));
+            vnPayResult(@(1));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://fail.sdk.merchantbackapp
         if ([@"FaildBackAction" isEqualToString:actionValue]) {
-            vnPayResult(@(3));
+            vnPayResult(@(1));
         }
         //Kiểm tra mã lỗi thanh toán VNPAY phản hồi trên Return URL. Từ Return URL của đơn vị kết nối thực hiện chuyển hướng đi URL: http://success.sdk.merchantbackapp
         if ([@"SuccessBackAction" isEqualToString:actionValue]) {
-            vnPayResult(@(3));
+            vnPayResult(@(1));
         }
         //Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
         if ([@"CallMobileBankingApp" isEqualToString:actionValue]) {
-            vnPayResult(@(3));
+            vnPayResult(@(0));
         }
     }
 }
