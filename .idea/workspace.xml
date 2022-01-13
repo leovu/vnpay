@@ -22,7 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="" />
+    <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/CallAppSDK.framework/CallAppSDK" beforeDir="false" afterPath="$PROJECT_DIR$/ios/CallAppSDK.framework/CallAppSDK" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/CallAppSDK.framework/Headers/CallAppInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/ios/CallAppSDK.framework/Headers/CallAppInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/CallAppSDK.framework/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/CallAppSDK.framework/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/VnpayPlugin.m" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/VnpayPlugin.m" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,12 +66,12 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/android" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/android/libs" />
       <recent name="$PROJECT_DIR$/ios" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -92,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1398" height="337" key="GridCell.Tab.0.bottom" timestamp="1641984627791">

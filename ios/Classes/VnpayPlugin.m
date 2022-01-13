@@ -32,7 +32,7 @@ FlutterResult vnPayResult;
      3. iconBackName của màn hình thanh toán:  VD: ion_back
      4: beginColor: Màu bắt đầu của header:  VD: F06744
      5: endColor: Màu kết thúc của header:  VD: E26F2C
-     6. tmn_code: VD: 2QXUI4J4
+     6. tmnCode: VD: 2QXUI4J4
      7: titleColor: Màu của header title
      +(void)setAppBackAlert:(NSString*)alert;//Default: @"Bạn có chắc chắn muốn trở lại không?"
      +(void)setAppNotAvailableAlert:(NSString*)alert;//Default: @"Thiết bị chưa cài đặt ứng dụng thanh toán này, bạn có muốn cài đặt không?"
@@ -48,7 +48,7 @@ FlutterResult vnPayResult;
     [CallAppInterface setIsSandbox:isSandbox];
     [CallAppInterface setAppBackAlert:dict[@"appBackAlert"]];
     [CallAppInterface setHomeViewController:[[UIApplication sharedApplication] delegate].window.rootViewController];
-    [CallAppInterface showPushPaymentwithPaymentURL:dict[@"url"] withTitle:dict[@"title"] iconBackName:dict[@"backIcon"] beginColor:dict[@"beginColor"] endColor:dict[@"endColor"] titleColor:dict[@"titleColor"] tmn_code:dict[@"tmn_code"]];
+    [CallAppInterface showPushPaymentwithPaymentURL:dict[@"url"] withTitle:dict[@"title"] iconBackName:dict[@"backIcon"] beginColor:dict[@"beginColor"] endColor:dict[@"endColor"] titleColor:dict[@"titleColor"] tmn_code:dict[@"tmnCode"]];
 }
 
 
