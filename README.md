@@ -43,6 +43,16 @@ Using:
         <data android:scheme="sampleapp" />
       </intent-filter>
     </activity>
+    
+    
+ Add ':vnpay' to the first line of file android/settings.gradle
+ 
+     > include ':app', ':vnpay'
+     
+     
+ Add this line to the dependencies section of the file android/app/build.gradle
+ 
+     > implementation project(':vnpay')
  
  
  ** In iOS** :
