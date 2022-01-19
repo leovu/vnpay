@@ -36,7 +36,8 @@ Using:
 
 ** In Android ** :
  
-     >  <activity android:name="wao.flutter.application.project.vnpay.ResultActivity">
+     >  <activity android:name="wao.flutter.application.project.vnpay.ResultActivity"
+          android:exported="false">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
