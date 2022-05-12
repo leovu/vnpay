@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8546c579-8a60-4da7-8833-701558bd3800" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/VnpayPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/wao/flutter/application/project/vnpay/VnpayPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vnpay.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vnpay.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,11 +33,21 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@10.253.1.158:5555]" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nJRKJ3RTUKKflNeyS8mSLysFjn" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,7 +57,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -37,7 +66,11 @@
       <recent name="$PROJECT_DIR$/android/libs" />
       <recent name="$PROJECT_DIR$/ios" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android" />
+    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -51,30 +84,46 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="15" key="GridCell.Tab.0.bottom" timestamp="1611136242636">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1398" height="337" key="GridCell.Tab.0.bottom" timestamp="1642070432091">
+      <screen x="0" y="25" width="1440" height="774" />
     </state>
-    <state width="1638" height="15" key="GridCell.Tab.0.bottom/1680.256.1366.678/0.23.1680.1027@0.23.1680.1027" timestamp="1611136242636" />
-    <state width="1324" height="2" key="GridCell.Tab.0.bottom/1680.256.1366.678/0.23.1680.1027@1680.256.1366.678" timestamp="1611119485629" />
-    <state width="1324" height="81" key="GridCell.Tab.0.bottom/1680.256.1366.745/0.23.1680.960@1680.256.1366.745" timestamp="1611108019258" />
-    <state width="1638" height="15" key="GridCell.Tab.0.center" timestamp="1611136242636">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1398" height="337" key="GridCell.Tab.0.bottom/0.25.1440.772@0.25.1440.772" timestamp="1642069581906" />
+    <state width="1398" height="337" key="GridCell.Tab.0.bottom/0.25.1440.774@0.25.1440.774" timestamp="1642070432091" />
+    <state width="1398" height="337" key="GridCell.Tab.0.bottom/0.25.1440.783@0.25.1440.783" timestamp="1641984627791" />
+    <state width="1398" height="337" key="GridCell.Tab.0.center" timestamp="1642070432090">
+      <screen x="0" y="25" width="1440" height="774" />
     </state>
-    <state width="1638" height="15" key="GridCell.Tab.0.center/1680.256.1366.678/0.23.1680.1027@0.23.1680.1027" timestamp="1611136242636" />
-    <state width="1324" height="2" key="GridCell.Tab.0.center/1680.256.1366.678/0.23.1680.1027@1680.256.1366.678" timestamp="1611119485629" />
-    <state width="1324" height="81" key="GridCell.Tab.0.center/1680.256.1366.745/0.23.1680.960@1680.256.1366.745" timestamp="1611108019257" />
-    <state width="1638" height="15" key="GridCell.Tab.0.left" timestamp="1611136242635">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1398" height="337" key="GridCell.Tab.0.center/0.25.1440.772@0.25.1440.772" timestamp="1642069581905" />
+    <state width="1398" height="337" key="GridCell.Tab.0.center/0.25.1440.774@0.25.1440.774" timestamp="1642070432090" />
+    <state width="1398" height="337" key="GridCell.Tab.0.center/0.25.1440.783@0.25.1440.783" timestamp="1641984627791" />
+    <state width="1398" height="337" key="GridCell.Tab.0.left" timestamp="1642070432090">
+      <screen x="0" y="25" width="1440" height="774" />
     </state>
-    <state width="1638" height="15" key="GridCell.Tab.0.left/1680.256.1366.678/0.23.1680.1027@0.23.1680.1027" timestamp="1611136242635" />
-    <state width="1324" height="2" key="GridCell.Tab.0.left/1680.256.1366.678/0.23.1680.1027@1680.256.1366.678" timestamp="1611119485628" />
-    <state width="1324" height="81" key="GridCell.Tab.0.left/1680.256.1366.745/0.23.1680.960@1680.256.1366.745" timestamp="1611108019257" />
-    <state width="1638" height="15" key="GridCell.Tab.0.right" timestamp="1611136242636">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state width="1398" height="337" key="GridCell.Tab.0.left/0.25.1440.772@0.25.1440.772" timestamp="1642069581905" />
+    <state width="1398" height="337" key="GridCell.Tab.0.left/0.25.1440.774@0.25.1440.774" timestamp="1642070432090" />
+    <state width="1398" height="337" key="GridCell.Tab.0.left/0.25.1440.783@0.25.1440.783" timestamp="1641984627789" />
+    <state width="1398" height="337" key="GridCell.Tab.0.right" timestamp="1642070432091">
+      <screen x="0" y="25" width="1440" height="774" />
     </state>
-    <state width="1638" height="15" key="GridCell.Tab.0.right/1680.256.1366.678/0.23.1680.1027@0.23.1680.1027" timestamp="1611136242636" />
-    <state width="1324" height="2" key="GridCell.Tab.0.right/1680.256.1366.678/0.23.1680.1027@1680.256.1366.678" timestamp="1611119485629" />
-    <state width="1324" height="81" key="GridCell.Tab.0.right/1680.256.1366.745/0.23.1680.960@1680.256.1366.745" timestamp="1611108019258" />
+    <state width="1398" height="337" key="GridCell.Tab.0.right/0.25.1440.772@0.25.1440.772" timestamp="1642069581906" />
+    <state width="1398" height="337" key="GridCell.Tab.0.right/0.25.1440.774@0.25.1440.774" timestamp="1642070432091" />
+    <state width="1398" height="337" key="GridCell.Tab.0.right/0.25.1440.783@0.25.1440.783" timestamp="1641984627791" />
+    <state x="421" y="166" width="597" height="490" key="find.popup" timestamp="1641984063482">
+      <screen x="0" y="25" width="1440" height="783" />
+    </state>
+    <state x="421" y="166" width="597" height="490" key="find.popup/0.25.1440.783@0.25.1440.783" timestamp="1641984063482" />
   </component>
 </project>
