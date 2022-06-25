@@ -33,12 +33,12 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
     }
   }
 
-  private fun openVnPay(dict: Map<String,String>) {
+  private fun openVnPay(dict: Map<String,String>?) {
     val intent = Intent(activity, VNP_AuthenticationActivity::class.java)
-    intent.putExtra("url", dict["url"])
-    intent.putExtra("tmn_code", dict["tmnCode"])
-    intent.putExtra("scheme", dict["scheme"])
-    intent.putExtra("is_sandbox", dict["isSandbox"] == "true")
+    intent.putExtra("url", dict!!["url"])
+    intent.putExtra("tmn_code", dict!!["tmnCode"])
+    intent.putExtra("scheme", dict!!["scheme"])
+    intent.putExtra("is_sandbox", dict!!["isSandbox"] == "true")
     VNP_AuthenticationActivity.setSdkCompletedCallback { action ->
       //Người dùng nhấn back từ sdk để quay lại
       if(action == "AppBackAction"){
