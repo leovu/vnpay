@@ -29,7 +29,7 @@ class VnpayPlugin: FlutterPlugin, MethodCallHandler, ActivityAware{
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "vnpay") {
       pendingResult = result
-      openVnPay(call.arguments() as Map<String,String>)
+      openVnPay(call.arguments() as Map<String,String>?)
     }
   }
 
