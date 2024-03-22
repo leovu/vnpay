@@ -11,6 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTask"
+            android:exported="true"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
@@ -41,7 +42,8 @@
         <!-- VNPay -->
         <!--Acvitiy để trigger kết quả thanh toán từ app mobile banking
           khi mở lại activity này thì bạn cần kiểm tra trạng thái thanh toán của đơn hàng -->
-        <activity android:name="wao.flutter.application.project.vnpay.ResultActivity">
+        <activity android:name="wao.flutter.application.project.vnpay.ResultActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
