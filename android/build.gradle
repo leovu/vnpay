@@ -29,6 +29,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace 'wao.flutter.application.project.vnpay'
     compileSdkVersion 31
 
     sourceSets {
